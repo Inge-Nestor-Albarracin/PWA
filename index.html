@@ -137,7 +137,13 @@
       cells.forEach(cell => (cell.textContent = ""));
     }
 
-    cells.forEach(cell => cell.addEventListener("click", manejarClick));
+    cells.forEach(cell => cell.addEventListener("click", manejarClick)); 
+
+    if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("./service-worker.js")
+    .then(() => console.log("Service Worker registrado"))
+    .catch((err) => console.log("Error en registro del SW:", err));
+}
   </script>
 </body>
 </html>
